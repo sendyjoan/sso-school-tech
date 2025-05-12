@@ -10,10 +10,10 @@ SSO School Tech adalah sebuah proyek yang bertujuan untuk menyediakan solusi Sin
 - **Integrasi Mudah**: Dukungan untuk integrasi dengan aplikasi pihak ketiga.
 
 ## Teknologi yang Digunakan
-- **Backend**: [Teknologi backend yang digunakan, misalnya Node.js, Django, dll.]
-- **Frontend**: [Teknologi frontend yang digunakan, misalnya React, Angular, dll.]
-- **Database**: [Jenis database yang digunakan, misalnya PostgreSQL, MongoDB, dll.]
-- **Autentikasi**: [Metode autentikasi, misalnya OAuth2, JWT, dll.]
+- **Backend**: NodeJs, PrismaOrm, Express.
+- **Frontend**: VueJs, Vuex, Vue Router.
+- **Database**: MySQL.
+- **Autentikasi**: OAuth2, JWT.
 
 ## Cara Instalasi
 1. Clone repositori:
@@ -38,7 +38,8 @@ SSO School Tech adalah sebuah proyek yang bertujuan untuk menyediakan solusi Sin
 Kontribusi sangat diterima! Silakan buat pull request atau buka issue untuk diskusi lebih lanjut.
 
 ## Lisensi
-Proyek ini dilisensikan di bawah [Nama Lisensi].
+Proyek ini dilisensikan di bawah PT. SchoolTech Indonesia.
 
 ## Kontak
-Untuk informasi lebih lanjut, hubungi [email@example.com].
+Untuk informasi lebih lanjut, hubungi admin@schooltechindonesia.com atau kunjungi https://schooltechindonesia.com.
+```
