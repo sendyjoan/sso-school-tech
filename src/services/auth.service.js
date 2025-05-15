@@ -4,17 +4,17 @@ import userRepo from '../repositories/user.repository.js';
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
-async function register({ name, email, password }) {
-    const existingUser = await userRepo.findUserByEmail(email);
+async function register({ name, username, password }) {
+    const existingUser = await userRepo.findUserByUsername(username);
     if (existingUser) throw new Error('User already exists');
 
     const hashed = await bcrypt.hash(password, 10);
-    const user = await userRepo.createUser({ name, email, password: hashed });
-    return { id: user.id, email: user.email };
+    const user = await userRepo.createUser({ name, username, password: hashed });
+    return { id: user.id, username: user.username };
 }
 
-async function login({ email, password }) {
-    const user = await userRepo.findUserByEmail(email);
+async function login({ username, password }) {
+    const user = await userRepo.findUserByUsername(username);
     if (!user || !(await bcrypt.compare(password, user.password))) {
         throw new Error('Invalid credentials');
     }
