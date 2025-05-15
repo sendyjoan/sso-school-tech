@@ -18,7 +18,7 @@ SSO School Tech adalah sebuah proyek yang bertujuan untuk menyediakan solusi Sin
 ## Cara Instalasi
 1. Clone repositori:
     ```bash
-    git clone https://github.com/username/sso-school-tech.git
+    git clone https://github.com/sendyjoan/sso-school-tech.git
     ```
 2. Masuk ke direktori proyek:
     ```bash
@@ -28,7 +28,11 @@ SSO School Tech adalah sebuah proyek yang bertujuan untuk menyediakan solusi Sin
     ```bash
     npm install
     ```
-4. Konfigurasi file environment `.env`.
+4. Konfigurasi file environment `.env` dengan cara melakukan copy paste file `.env.development` dan mengubah isi dari file tersebut.
+5. Lakukan migration prisma orm
+    ```bash
+    npx prisma generate
+    ```
 5. Jalankan aplikasi:
     ```bash
     npm start
