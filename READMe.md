@@ -39,8 +39,16 @@ SSO School Tech adalah sebuah proyek yang bertujuan untuk menyediakan solusi Sin
     ```
 7. Jalankan aplikasi:
     ```bash
-    npm start
+    npm run start
     ```
+8. Atau anda bisa menggunakan nodemon dengan perintah
+    ```bash
+    npm run dev
+    ```
+
+## API Documentation
+Untuk melihat dokumentasi dari API yang ada pada project ini anda dapat mengunjungi melalui berikut
+http://yourip:{your_port}/docs
 
 ## Kontribusi
 Kontribusi sangat diterima! Silakan buat pull request atau buka issue untuk diskusi lebih lanjut.
