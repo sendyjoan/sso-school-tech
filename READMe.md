@@ -33,7 +33,11 @@ SSO School Tech adalah sebuah proyek yang bertujuan untuk menyediakan solusi Sin
     ```bash
     npx prisma generate
     ```
-5. Jalankan aplikasi:
+6. Lakukan migration ke database
+    ```bash
+    npx prisma migrate
+    ```
+7. Jalankan aplikasi:
     ```bash
     npm start
     ```
