@@ -4,9 +4,12 @@ import userRepo from '../repositories/user.repository.js';
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
-async function register({ name, username, password }) {
+async function register({ name, username, password, app_key }) {
     const existingUser = await userRepo.findUserByUsername(username);
     if (existingUser) throw new Error('User already exists');
+
+    // get data detail app_key dari permission service
+    console.log('App Key:', app_key);
 
     const hashed = await bcrypt.hash(password, 10);
     const user = await userRepo.createUser({ name, username, password: hashed });
