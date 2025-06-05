@@ -1,6 +1,8 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import userRepo from '../repositories/user.repository.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
@@ -17,6 +19,9 @@ async function register({ name, username, password, app_key }) {
 }
 
 async function login({ username, password }) {
+    if (!JWT_SECRET) {
+        throw new Error('JWT_SECRET is not set in environment variables');
+    }
     const user = await userRepo.findUserByUsername(username);
     const permissions = user?.role.rolePermissions.map(rp => rp.permission.name);
     console.log('User found:', user);
