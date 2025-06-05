@@ -11,7 +11,16 @@ async function main() {
     'create_role',
     'read_role',
     'update_role',
-    'delete_role'
+    'delete_role',
+    'create_permission',
+    'read_permission',
+    'update_permission',
+    'delete_permission',
+    'assign_role',
+    'assign_permission',
+    'revoke_role',
+    'revoke_permission',
+    'view_audit_logs',
   ];
 
   const permissionRecords = await Promise.all(
