@@ -14,10 +14,43 @@ datasource db {
 }
 
 model User {
-    id        String   @id @default(uuid())
-    name      String
-    username  String   @unique
-    password  String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+  id        String   @id @default(uuid())
+  name      String
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+  roleId    String
+  role      Role     @relation(fields: [roleId], references: [id])
+}
+
+model Role {
+  id          String        @id @default(uuid())
+  name        String        @unique
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  deletedAt   DateTime?
+  users       User[]
+  rolePermissions Role_has_permission[]
+}
+
+model Permission {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+  rolePermissions Role_has_permission[]
+}
+
+model Role_has_permission {
+  roleId       String
+  permissionId String
+  assignedAt   DateTime @default(now())
+
+  role         Role      @relation(fields: [roleId], references: [id])
+  permission   Permission @relation(fields: [permissionId], references: [id])
+
+  @@id([roleId, permissionId])
 }
