@@ -18,11 +18,18 @@ async function register({ name, username, password, app_key }) {
 
 async function login({ username, password }) {
     const user = await userRepo.findUserByUsername(username);
+    const permissions = user?.role.rolePermissions.map(rp => rp.permission.name);
+    // console.log('User found:', user);
+    // console.log('Permissions:', permissions);
     if (!user || !(await bcrypt.compare(password, user.password))) {
         throw new Error('Invalid credentials');
     }
 
-    const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '1h' });
+    const token = jwt.sign({ 
+        userId: user.id,
+        role: user.role.name,
+        permissions: permissions || []
+     }, JWT_SECRET, { expiresIn: '1h' });
     return { token };
 }
 
